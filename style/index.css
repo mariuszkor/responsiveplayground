@@ -21,6 +21,7 @@ body {
 }
 
 embed {
+  min-width: 100%;
   min-height: 100%;
 }
 
