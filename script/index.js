@@ -2,11 +2,11 @@
 let currentDevice = "desktop";
 
 const devicesWidth = {
-    'phone-portrait': 360,//Bootsrtap beakpoint+2*border-width
-    'phone-landscape': 576,
-    'tablet': 768,
-    'laptop': 992,
-    'desktop': 1200,
+    'phone-portrait': 360+10,//Bootsrtap beakpoint+2*border-width
+    'phone-landscape': 576+10,
+    'tablet': 768+10,
+    'laptop': 992+10,
+    'desktop': 1200+10,
 }
 
 const devicesIcons = {
@@ -190,7 +190,7 @@ function displayResolutions() {
     //currentDevice = findKeyOfValue(devicesWidth, currentResolutions['playgroundCurrentWidth']);
 
     document.getElementById('playground-resolution').innerHTML =
-        currentResolutions['playgroundCurrentWidth'] + "x" + currentResolutions['playgroundCurrentHeight'];
+        (currentResolutions['playgroundCurrentWidth']-10) + "x" + (currentResolutions['playgroundCurrentHeight']-10);
     document.getElementById('playground-devices-area').innerHTML =
         devicesIcons[currentDevice];
     document.getElementById('viewport-resolution').innerHTML =
