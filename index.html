@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Playground</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="style/index.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+
+    <div class="container-fluid p-0 justify-content-center">
+
+        <!-- Main box - main menu, playground, preview -->
+        <div id="main-area" class="row no-gutters">
+
+
+            <!-- Main menu -->
+            <div id="main-menu-box" class="col-2">
+                <div id="main-menu-area" class="overflow-auto">
+                    <!-- Main menu rendered by renderMenu() -->
+                </div>
+            </div>
+
+
+            <!-- Playground area -->
+            <div id="playground-area" class="col-10 row d-flex flex-column align-items-center p-0 m-0">
+
+                <!-- Playground -->
+                <div id="playground" class="overflow-hidden" style="width: 1200px;">
+                    <!-- Elements embedded by embedFile() -->
+
+                    <!-- Welcome text -->
+                    <div class="container-fludid text-center" style="width:100%; height:100%">
+
+                        <div class="row p-0 m-0">
+                            <div class="col">
+                                <strong>
+                                    <p class="h2">Welcome to Responsive Playground 0.9!</p>
+                                </strong>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-6 pl-5">
+                                <p class="h5">To start choose category and element from menu on the left side.</p>
+                                <div><img src="img/menu.png" alt="Menu screenshot"></div>
+                                <p class="h5">Below you can see element name and short descriptnion.</p>
+                                <div><img src="img/description.png" alt="Menu screenshot" class=""></div>
+
+                            </div>
+
+                            <div class="col-6 pr-5">
+                                <p class="h5">Use navigation buttons to switch between elements in same category.</p>
+                                <div><img src="img/navigation.png" alt="Menu screenshot"></div>
+                                <p class="h5">Use resize buttons to switch between width differnet devices.
+                                    Devices widths based on
+                                    <a href="https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints"
+                                        target="blank">
+                                        Bootstrap responsive breakpoints</a>.
+                                </p>
+
+                                <div><img src="img/resize.png" alt="Menu screenshot"></div>
+                                <p class="h5 pb-5">And have fun! :)</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Preview -->
+                <div id="preview-area" class="ml-3 rounded overflow-hidden">
+                    <img id="preview-img" src="" alt="There is no screenshot of this file!" class="img-fluid">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Control -->
+        <div id="control-area" class="row w-100 fixed-bottom m-0">
+
+            <div id="buttons-area" class="col-2 p-0">
+
+                <div>
+                    <!-- Navigation -->
+                    <div id="navigation" class="row no-gutters">
+                        <div class="col-6 text-right">
+                            <button id="button-prev" onclick="embedNextPrev('prev')" disabled> <i
+                                    class="fas fa-chevron-circle-left"></i><strong> Prev</strong></button>
+                        </div>
+
+                        <div class="col-6 text-left">
+                            <button id="button-next" onclick="embedNextPrev('next')" disabled><strong>Next </strong><i
+                                    class="fas fa-chevron-circle-right"></i></button>
+                        </div>
+
+                    </div>
+
+                    <!-- Resize buttons -->
+                    <div id="resize-buttons" class="col p-0 text-center">
+                        <button onclick="playgroundResize('phone-portrait')"><i class="fas fa-mobile-alt"></i></button>
+                        <button onclick="playgroundResize('phone-landscape')"><i class="fas fa-mobile-alt" style="transform: rotate(90deg)"></i></button>
+                        <button onclick="playgroundResize('tablet')"><i class="fas fa-tablet-alt"></i></button>
+                        <button onclick="playgroundResize('laptop')"><i class="fas fa-laptop"></i></button>
+                        <button onclick="playgroundResize('desktop')"><i class="fas fa-desktop"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- File info -->
+            <div class="col-6 offset-2 text-center">
+
+                <!-- Name -->
+                <div class="row pt-2 pb-2">
+                    <div id="embedded-name-box" class="col text-center">
+                        <p id="embedded-name" class="h4 m-0 pt-1 pb-1"><strong>Element name</strong></p>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div id="embedded-notes" class="row overflow-auto pl-2 pt-2">
+                    <p>Element description</p>
+                    
+                </div>
+
+                <!-- Resolution info -->
+                <div id="resolution-info" class="row no-gutters w-100 pb-2">
+
+                    <div class="col-6">
+                        <p class="m-0 text-left">
+                            Playground:
+                            <strong><span id="playground-resolution"></span></strong>px.
+                            <strong><span id="playground-devices-area"></span></strong>
+                        </p>
+                    </div>
+
+                    <div class="col-6">
+                        <p class="m-0 text-right">Viewport:<strong><span id="viewport-resolution"></span></strong>px.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Alerts -->
+    <!-- Resolution alert -->
+    <div id="resolution-alert" class="custom-alert text-center pt-5">
+
+        <div class="w-75 mx-auto">
+            <p class="h2">Resolution alert!</p>
+
+            <p class="h5 text-left">This playgroud is written for checking responsive behavior of embedded elements, but
+                in itself is not responsive.</p>
+            <p class="h5 text-left">Recommended screen resolution is <strong>1680</strong>x<strong>1050</strong>px or
+                greater.</p>
+            <p class="h5 text-left">For proper behavior minimal vievport resolution is <strong><span
+                        id="resolution-alert-min-width-area"></span></strong>x<strong><span
+                        id="resolution-alert-min-height-area"></span></strong>px.</p>
+            <p class="h5 text-left">Your current resolution is <strong><span
+                        id="resolution-alert-current-width-area"></span></strong>x<strong><span
+                        id="resolution-alert-current-height-area"></span></strong>px.</p>
+            <p class="h5 text-left">Please, resize your browser window or use another device.</p>
+            <p class="h5 text-left">You can use playground in this resolution, by clicking "OK", but it will not work
+                properly. E.g. you may not be able to see whole playground area.</p>
+            <button class="btn btn-light w-25 mt-3" onclick="alertHandle('resolution-alert', false)">OK</button>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="_main_menu-list.js"></script>
+<script src="script/index.js"></script>
+
+</html>

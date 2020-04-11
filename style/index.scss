@@ -1,0 +1,177 @@
+@import "../customizer";
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #7b7972;
+    background-color: var(--primary);
+    color: #0b0d0e;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.file-notes-body {
+    background-color: #7b7972;
+    background-color: var(--primary);
+}
+
+
+embed {
+    //min-width: 100%;
+    min-height: 100%;
+}
+
+button {
+    background-color: #7b7972;
+    background-color: var(--primary);
+    color: #0b0d0e;
+    color: var(--text);
+    border: 2px solid var(--secondary);
+    padding: 2px 7px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+//**MAIN MENU
+//**PLAYGROUND
+#main-menu-box {
+    background-color: #292b2c;
+    background-color: var(--secondary);
+    height: 100vh;
+}
+
+#main-menu-area,
+#playground-area {
+    position: relative;
+    height: 75vh;
+}
+
+#main-menu-area {
+    padding: 5px;
+    background-color: #292b2c;
+    background-color: var(--secondary);
+}
+
+#playground {
+    border: 5px solid #292b2c;
+    border: 5px solid var(--secondary);
+    border-radius: 7.5px;
+    margin-top: 2.5vh;
+    height: 70vh;
+
+    & p {
+        margin-top: 1.25em;
+    }
+
+    & img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+
+    & a{
+        color: inherit;
+    }
+}
+
+
+//>>>FOR NEXT VERSION
+// .mobile-size-playground{
+//     -ms-overflow-style: none; 
+//     scrollbar-width: none;
+//     cursor: grab;
+
+//     &:active{
+//         cursor: grabbing;
+//     }
+//     &::-webkit-scrollbar{
+//         width:0;
+//     }
+// }
+
+
+//*PREVIEW
+
+#preview-area {
+    position: absolute;
+    border: 0px solid #292b2c;
+    border: 0px solid var(--secondary);
+    z-index: 2;
+    left: 0;
+    top: 1vh;
+    width: 0;
+    height: 0;
+    transition: 0.6s; //minimalize smooth not working in IE - why?
+}
+
+//**CONTROL AREA
+#control-area {
+    background-color: #292b2c;
+    background-color: var(--secondary);
+    height: 20vh;
+}
+
+#buttons-area {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & button {
+        margin: 5px 2px;
+        border-radius: 5px;
+
+        &:disabled {
+            color: #292b2c;
+            color: var(--secondary);
+        }
+    }
+}
+
+#button-prev,
+#button-next {
+    padding: 0 16px;
+}
+
+//**NAVIGATION BAR
+
+//**RESIZE BAR
+
+
+//**NOTES BAR
+
+#embedded-name-box {
+    background-color: #7b7972;
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+#embedded-notes {
+    height: 100px;
+    background-color: #7b7972;
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+//**RESOLUTION INFO
+#resolution-info {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    top: 0;
+    left: 50%;
+}
+
+//*RESOLUTION ALERT
+.custom-alert {
+    position: absolute;
+    top: 0;
+    z-index: 1031;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(00, 00, 00, 0.9);
+    color: white;
+    overflow: hidden;
+}

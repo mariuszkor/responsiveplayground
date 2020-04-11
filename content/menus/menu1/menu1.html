@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+
+    <style>
+        .dragscroll {
+            cursor: grab;
+        }
+
+        .dragscroll:active {
+            cursor: grabbing;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            body {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            body::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- To change -->
+    <link href="menu1.css" rel="stylesheet">
+
+
+
+</head>
+
+<body id="element-body">
+
+    <!-- Add HTML code below -->
+    <div id="myTestDiv">
+
+    </div>
+    <p>Scrollbar and dragscroll test</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+    <p>Menu1</p>
+
+    <!-- Add HTML code above -->
+
+</body>
+
+
+<!-- Scripts -->
+<script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+<script>
+    function addDragscroll() { //for mobile sizes
+        if (window.innerWidth < 933) {
+            document.getElementById('element-body').classList.add('dragscroll');
+            //document.getElementById('element-body').style.cssText='cursor: grab';
+        }
+    }
+    window.addDragscroll();
+</script>
+
+
+<!-- To change -->
+<script src="menu1.js"></script>
+
+</html>
